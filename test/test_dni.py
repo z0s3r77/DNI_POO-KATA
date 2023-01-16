@@ -7,7 +7,7 @@ from src.dni import DNI
 def test_dni():
 
     numeroDni = DNI('43187839')
-    assert "43187839A" ==  numeroDni.getDniNumber()
+    assert "43187839A" ==  numeroDni.getDniLetter()
 
     numeroDni = DNI('45348976')
-    assert "45348976Z" ==  numeroDni.getDniNumber()
+    assert "45348976Z" ==  numeroDni.getDniLetter()

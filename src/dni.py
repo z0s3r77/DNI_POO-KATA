@@ -5,44 +5,44 @@ class DNI(CalculadoraLetraDNI):
     def __init__(self, number):
         self.Dni = ""
         self.dniLetter = ""
-        self.dniNumber = number
+        self.nif = number
         self.calculadora = CalculadoraLetraDNI()
 
 
 
-    def checkDniNumberIsInt(self):
+    def checkNifIsANumberFormat(self):
         try:
-            self.dniNumber = int(self.dniNumber)
+            self.nif = int(self.nif)
         except:
             return False
         else:
             return True
 
 
-    def checkLenghtDniNumber(self):
+    def checkNifLenght(self):
 
-        if len(self.dniNumber) == 8:
+        if len(self.nif) == 8:
             return True
         else:
             return False
     
 
-    def checkDniNumberIsCorrect(self):
+    def checkNifNumberIsCorrect(self):
 
-        if self.checkLenghtDniNumber() and self.checkDniNumberIsInt():
+        if self.checkNifLenght() and self.checkNifIsANumberFormat():
             return True
         else:
             return False
 
 
 
-    def getDniNumber(self):
+    def getDniLetter(self):
 
 
-        if self.checkDniNumberIsCorrect():
+        if self.checkNifNumberIsCorrect():
 
             try:
-                letterPosition = self.calculadora.getLetterPositionInTable(self.dniNumber)
+                letterPosition = self.calculadora.getLetterPositionInTable(self.nif)
 
             except:
                 return 'No es posible obtener la letra de la Tabla'
@@ -51,7 +51,7 @@ class DNI(CalculadoraLetraDNI):
 
                 self.dniLetter = self.calculadora.getletter(letterPosition)
                 
-                self.Dni = str(self.dniNumber) + self.dniLetter
+                self.Dni = str(self.nif) + self.dniLetter
                 
                 return self.Dni
 
