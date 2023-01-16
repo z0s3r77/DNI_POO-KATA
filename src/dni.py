@@ -6,6 +6,7 @@ class DNI(CalculadoraLetraDNI):
         self.Dni = ""
         self.dniLetter = ""
         self.dniNumber = number
+        self.calculadora = CalculadoraLetraDNI()
 
 
 
@@ -37,19 +38,18 @@ class DNI(CalculadoraLetraDNI):
 
     def getDniNumber(self):
 
-        calculadora = CalculadoraLetraDNI()
 
         if self.checkDniNumberIsCorrect():
 
             try:
-                letterPosition = calculadora.getLetterPositionInTable(self.dniNumber)
+                letterPosition = self.calculadora.getLetterPositionInTable(self.dniNumber)
 
             except:
                 return 'No es posible obtener la letra de la Tabla'
 
             else:
 
-                self.dniLetter = calculadora.getletter(letterPosition)
+                self.dniLetter = self.calculadora.getletter(letterPosition)
                 
                 self.Dni = str(self.dniNumber) + self.dniLetter
                 

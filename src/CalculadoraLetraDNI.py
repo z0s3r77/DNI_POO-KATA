@@ -6,20 +6,16 @@ class CalculadoraLetraDNI:
         self.tableLenght = len(self.letterTable)
 
 
+
     def getLetterPositionInTable(self, number):
 
-        letterPosition = number % self.tableLenght
-
-        if letterPosition > self.tableLenght:
-            return False
-        else:
-            return letterPosition
+        position = number % self.tableLenght
+        return position
 
 
         
-
     def getletter(self, position):
-        
+
         letter = self.letterTable[position]
         return letter
 
