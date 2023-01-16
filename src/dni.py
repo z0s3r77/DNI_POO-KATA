@@ -3,7 +3,7 @@ from src.CalculadoraLetraDNI import CalculadoraLetraDNI
 class DNI(CalculadoraLetraDNI):
 
     def __init__(self, number):
-        self.Dni = ""
+        self.dni = ""
         self.dniLetter = ""
         self.nif = number
         self.calculadora = CalculadoraLetraDNI()
@@ -36,25 +36,29 @@ class DNI(CalculadoraLetraDNI):
 
 
 
-    def getDniLetter(self):
-
+    def setDniLetter(self):
 
         if self.checkNifNumberIsCorrect():
-
             try:
                 letterPosition = self.calculadora.getLetterPositionInTable(self.nif)
-
             except:
-                return 'No es posible obtener la letra de la Tabla'
-
+                return False
             else:
 
                 self.dniLetter = self.calculadora.getletter(letterPosition)
-                
-                self.Dni = str(self.nif) + self.dniLetter
-                
-                return self.Dni
-
+                return True
         else:
-            return 'El numero que has introducido no es correcto'
+            return False
+
+
+
+    def setDni(self):
+
+        if self.setDniLetter():
+            self.dni = str(self.nif) + self.dniLetter
+            return True
+        else:
+            self.dni = "No se ha podido obtener la letra"
+
+
 
