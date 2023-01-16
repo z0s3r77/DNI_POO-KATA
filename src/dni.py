@@ -62,3 +62,5 @@ class DNI(CalculadoraLetraDNI):
 
 
 
+    def __repr__(self):
+        return f"Tu dni es : {self.dni}"
