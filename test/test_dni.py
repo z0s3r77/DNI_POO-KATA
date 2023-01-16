@@ -3,11 +3,12 @@ from src.dni import DNI
 
 
 
-@pytest.mark.dnis
 def test_dni():
 
     numeroDni = DNI('43187839')
-    assert "43187839A" ==  numeroDni.getDniLetter()
+    numeroDni.setDni()
+    assert "43187839A" ==  numeroDni.dni
 
     numeroDni = DNI('45348976')
-    assert "45348976Z" ==  numeroDni.getDniLetter()
+    numeroDni.setDni()
+    assert "45348976Z" ==  numeroDni.dni

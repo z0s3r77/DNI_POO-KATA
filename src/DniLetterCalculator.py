@@ -1,4 +1,4 @@
-class CalculadoraLetraDNI:
+class DniLetterCalculator:
     
 
     def __init__(self):

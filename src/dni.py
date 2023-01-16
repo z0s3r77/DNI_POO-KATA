@@ -1,12 +1,12 @@
-from src.CalculadoraLetraDNI import CalculadoraLetraDNI
+from src.DniLetterCalculator import DniLetterCalculator
 
-class DNI(CalculadoraLetraDNI):
+class DNI(DniLetterCalculator):
 
     def __init__(self, number):
         self.dni = ""
         self.dniLetter = ""
         self.nif = number
-        self.calculadora = CalculadoraLetraDNI()
+        self.calculator = DniLetterCalculator()
 
 
 
@@ -40,12 +40,12 @@ class DNI(CalculadoraLetraDNI):
 
         if self.checkNifNumberIsCorrect():
             try:
-                letterPosition = self.calculadora.getLetterPositionInTable(self.nif)
+                letterPosition = self.calculator.getLetterPositionInTable(self.nif)
             except:
                 return False
             else:
 
-                self.dniLetter = self.calculadora.getletter(letterPosition)
+                self.dniLetter = self.calculator.getletter(letterPosition)
                 return True
         else:
             return False
@@ -63,4 +63,4 @@ class DNI(CalculadoraLetraDNI):
 
 
     def __repr__(self):
-        return f"Tu dni es : {self.dni}"
+        return f"DNI : {self.dni}"
